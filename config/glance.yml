@@ -1,0 +1,75 @@
+theme:
+  background-color: 186 21 20
+  contrast-multiplier: 1.2
+  primary-color: 97 13 80
+
+pages:
+
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: monday
+
+      - size: full
+        widgets:
+          - type: rss
+            title: Heise Technews
+            limit: 10
+            collapse-after: 3
+            cache: 12h
+            feeds:
+              - url: https://www.heise.de/rss/heise-atom.xml
+                title: Heise Technews
+          - type: rss
+            title: Golem
+            limit: 10
+            collapse-after: 3
+            cache: 12h
+            feeds:
+              - url: https://rss.golem.de/rss.php?feed=RSS2.0
+                title: Golem
+
+      - size: small
+        widgets:
+          - type: weather
+            location: Munich, Germany
+            units: metric
+            hour-format: 24h
+
+  - name: Services
+    columns:
+      - size: full
+        widgets:
+          - type: bookmarks
+            groups:
+              - title: Admin Panels
+                links:
+                  - title: File Browser
+                    url: http://raspi-kuba:8085
+                    icon: si:filebrowser
+                  - title: Pi-hole Admin
+                    url: http://raspi-kuba/admin
+                    icon: si:pihole
+                  - title: Portainer
+                    url: http://raspi-kuba:9000
+                    icon: si:portainer
+                  - title: cAdvisor
+                    url: http://raspi-kuba:8081
+                    icon: si:cAdvisor
+                  - title: Grafana
+                    url: http://raspi-kuba:3000
+                    icon: si:grafana
+                  - title: Prometheus
+                    url: http://raspi-kuba:9090
+                    icon: si:prometheus
+
+  - name: "Raspberry Pi Monitoring"
+    icon: "cpu"
+    columns:
+      - size: full
+        widgets:
+          - type: iframe
+            source: "http://192.168.4.125:3000/d/rYdddlPWk/node-exporter-full?orgId=1&kiosk"
+            height: 400
